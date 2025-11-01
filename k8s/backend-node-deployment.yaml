@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-node
+  template:
+    metadata:
+      labels:
+        app: backend-node
+    spec:
+      containers:
+        - name: backend-node
+          image: library-node:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DB_HOST
+              value: library-db   # the DB Service
+            - name: DB_USER
+              value: admin
+            - name: DB_PASSWORD
+              value: admin123
+            - name: DB_NAME
+              value: personal_library
