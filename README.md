@@ -103,7 +103,7 @@ kubectl apply -f ../k8s/db-service.yaml
 
 ### 4️⃣ Build and Deploy the Node.js Backend
 ```bash
-cd ../backend-nodejs
+cd ../backend-node
 docker build -t library-node:latest .
 kubectl apply -f ../k8s/backend-node-deployment.yaml
 kubectl apply -f ../k8s/backend-node-service.yaml
@@ -128,12 +128,12 @@ http://localhost:3000/api/books
 
 ## 🧹 Cleanup
 ```bash
-minikube stop
 kubectl delete deployment backend-node
 kubectl delete deployment postgres
 kubectl delete svc backend-node
 kubectl delete svc library-db
 docker rmi library-node:latest library-db:latest
+minikube stop
 ```
 
 👨‍💻 Developed by Carlos Maccarrone
