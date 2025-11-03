@@ -9,7 +9,7 @@ cd db
 docker build -t library-db:latest .
 
 echo "Building the Node backend image..."
-cd ../backend-nodejs
+cd ../backend-node
 docker build -t library-node:latest .
 
 echo "Applying Deployment and Service to the DB..."
